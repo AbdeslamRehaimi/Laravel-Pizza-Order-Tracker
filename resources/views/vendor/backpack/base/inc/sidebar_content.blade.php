@@ -5,3 +5,6 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('articles') }}'><i class='nav-icon fa fa-bitbucket-square'></i> Articles</a></li>
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('friends') }}'><i class='nav-icon fa fa-envelope'></i> Friends</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('memos') }}'><i class='nav-icon fa fa-question'></i> Memos</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('catproduit') }}'><i class='nav-icon fa fa-question'></i> Catproduits</a></li>
