@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\MemosRequest;
+use App\Http\Requests\ProductsRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class MemosCrudController
+ * Class ProductsCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class MemosCrudController extends CrudController
+class ProductsCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -21,9 +21,9 @@ class MemosCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Memos');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/memos');
-        $this->crud->setEntityNameStrings('memos', 'memos');
+        $this->crud->setModel('App\Models\Products');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/products');
+        $this->crud->setEntityNameStrings('products', 'products');
     }
 
     protected function setupListOperation()
@@ -34,7 +34,7 @@ class MemosCrudController extends CrudController
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(MemosRequest::class);
+        $this->crud->setValidation(ProductsRequest::class);
 
         // TODO: remove setFromDb() and manually define Fields
         $this->crud->setFromDb();
