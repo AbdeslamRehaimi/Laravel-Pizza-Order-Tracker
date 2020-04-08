@@ -146,7 +146,7 @@ class ProductsCrudController extends CrudController
             'type' => 'image',
             'label' => 'Image',
             //'prefix' => 'storage/',
-            'prefix' => 'uploads/images/products/',
+            'prefix' => 'public/uploads/images/products/',
             'height' => '400px',
             'crop' => true,
             'aspect_ratio' => 1,

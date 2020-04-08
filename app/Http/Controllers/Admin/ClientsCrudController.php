@@ -71,7 +71,7 @@ class ClientsCrudController extends CrudController
             'name' => 'imgPath',
             'type' => 'image',
             'label' => 'Image',
-            'height' => '80px',
+            'height' => '50px',
             'width' => '80px',
         ];
 
@@ -231,8 +231,8 @@ class ClientsCrudController extends CrudController
             'label' => 'Image',
             //'prefix' => 'uploads/',
              //'prefix' => 'storage/',
-            'height' => '80px',
-            'width' => '80px',
+             'height' => '300px',
+             'width' => '400px',
             'tab' => 'Client Image',
         ];
 

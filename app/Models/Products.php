@@ -30,11 +30,34 @@ class Products extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function setImageAttribute($value)
-    {
+    /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
+    public function categories(){
+        return $this->belongsTo(Categories::class, 'catID');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | SCOPES
+    |--------------------------------------------------------------------------
+    */
+    public function scopeGetClientImage(){
+        return "storage/" . $this->imgPath;
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | ACCESSORS
+    |--------------------------------------------------------------------------
+    */
+
+    public function setImageAttribute($value){
         $attribute_name = "image";
         $disk = config('backpack.base.root_disk_name'); // or use your own disk, defined in config/filesystems.php
-        $destination_path = "public/storage/uploads/products/"; // path relative to the disk above
+        $destination_path = "public/uploads/images/products/"; // path relative to the disk above
 
          // if the image was erased
         if ($value == null) {
@@ -59,30 +82,6 @@ class Products extends Model
 
     }
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | RELATIONS
-    |--------------------------------------------------------------------------
-    */
-
-    public function categories(){
-        return $this->belongsTo(Categories::class, 'catID');
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | SCOPES
-    |--------------------------------------------------------------------------
-    */
-    public function scopeGetClientImage(){
-        return "storage/" . $this->imgPath;
-    }
-    /*
-    |--------------------------------------------------------------------------
-    | ACCESSORS
-    |--------------------------------------------------------------------------
-    */
 
     /*
     |--------------------------------------------------------------------------
