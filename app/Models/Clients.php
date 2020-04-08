@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Hash;
 
-class Products extends Model
+class Clients extends Model
 {
     use CrudTrait;
 
@@ -16,7 +18,7 @@ class Products extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'products';
+    protected $table = 'clients';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -30,11 +32,37 @@ class Products extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function setPasswordAttribute($value) {
+        $this->attributes['motdepasse'] = Hash::make($value);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
+    /*
+    |--------------------------------------------------------------------------
+    | SCOPES
+    |--------------------------------------------------------------------------
+    */
+
+    public function scopeGetClientImage(){
+        return "storage/" . $this->imgPath;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | ACCESSORS
+    |--------------------------------------------------------------------------
+    */
+
     public function setImageAttribute($value)
     {
         $attribute_name = "image";
         $disk = config('backpack.base.root_disk_name'); // or use your own disk, defined in config/filesystems.php
-        $destination_path = "public/storage/uploads/products/"; // path relative to the disk above
+        $destination_path = "public/storage/uploads/clients/"; // path relative to the disk above
 
          // if the image was erased
         if ($value == null) {
@@ -59,35 +87,9 @@ class Products extends Model
 
     }
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | RELATIONS
-    |--------------------------------------------------------------------------
-    */
-
-    public function categories(){
-        return $this->belongsTo(Categories::class, 'catID');
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | SCOPES
-    |--------------------------------------------------------------------------
-    */
-    public function scopeGetClientImage(){
-        return "storage/" . $this->imgPath;
-    }
-    /*
-    |--------------------------------------------------------------------------
-    | ACCESSORS
-    |--------------------------------------------------------------------------
-    */
-
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-
 }
