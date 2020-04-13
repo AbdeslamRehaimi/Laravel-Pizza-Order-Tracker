@@ -27,7 +27,12 @@ class ProductsRequest extends FormRequest
     {
         return [
             // 'name' => 'required|min:5|max:255'
-
+            'Nom' => 'required|min:5|max:255',
+            'catID' => 'required',
+            'Prix' => 'required',
+            'Remise' => 'required',
+            'Date_Debut' => 'required',
+            'Date_Fin' => 'required',
         ];
     }
 
