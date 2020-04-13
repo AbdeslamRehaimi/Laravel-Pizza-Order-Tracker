@@ -164,6 +164,14 @@ class ClientsCrudController extends CrudController
                 'class' => 'form-group col-md-6',
             ],
         ];
+        $passVerField = [
+            'name' => 'repetermotdepasse',
+            'type' => 'Password',
+            'label' => 'Retaper Password',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-6',
+            ],
+        ];
 
         $adminField = [
             'name' => 'admin',
@@ -178,7 +186,7 @@ class ClientsCrudController extends CrudController
             'allows_null'       => true,
         ];
 
-        $this->crud->addFields([$imageField, $nomField,$prenomField,$adrField,$emailField,$logField,$passField, $caField, $adminField]);
+        $this->crud->addFields([$imageField, $nomField,$prenomField,$adrField,$emailField,$logField,$passField, $passVerField, $caField, $adminField]);
     }
 
     protected function setupUpdateOperation()

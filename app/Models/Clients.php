@@ -32,7 +32,7 @@ class Clients extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function setPasswordAttribute($value) {
+    public function setMotdepasseAttribute($value) {
         $this->attributes['motdepasse'] = Hash::make($value);
     }
 
