@@ -87,7 +87,7 @@ class ClientsCrudController extends CrudController
             'label' => 'Role',
         ];
 
-        $this->crud->addColumns([$adminField, $nomField,$prenomField,$adrField,$emailField,$logField,$dateField,$imageField]);
+        $this->crud->addColumns([$adminField, $nomField,$prenomField,$adrField,$emailField,$dateField,$imageField]);
     }
 
     protected function setupCreateOperation()
@@ -130,7 +130,8 @@ class ClientsCrudController extends CrudController
 
         $adrField = [
             'name' => 'adresse',
-            'type' => 'text',
+            //'type' => 'text',
+            'type'  =>  'address_algolia',
             'label' => 'Adresse',
         ];
 
@@ -143,8 +144,8 @@ class ClientsCrudController extends CrudController
         $caField = [
             'name' => 'ca',
             'attributes' => ["step" => "any"],
-            'prefix' => "Ca",
-            'label' => 'Ca',
+            'prefix' => "Chiffre Affaire",
+            'label' => 'Chiffre Affaire',
         ];
 
         $logField = [
