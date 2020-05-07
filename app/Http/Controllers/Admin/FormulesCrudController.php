@@ -114,6 +114,37 @@ class FormulesCrudController extends CrudController
     }
 
     protected function setupShowOperation(){
-        $this->setupListOperation();
+
+        $descField = [
+            'name' => 'texte',
+            'label' => 'Description',
+            'type' => 'text',
+            //'type'  => 'wysiwyg',
+
+        ];
+
+        $nomField = [
+            'name' => 'nomFormule',
+            'type' => 'text',
+            'label' => 'Formule',
+        ];
+
+        $priceField = [
+            'name' => 'prix',
+            'type' => 'text',
+            'label' => 'Prix',
+        ];
+
+        $imagePathField = [
+            'name' => 'imgPath',
+            'label' => 'Image',
+            'type' => 'image',
+            //'prefix' => 'storage/',
+            //'prefix' => 'uploads/',
+            'height' => '250px',
+            'width' => '263px',
+        ];
+
+        $this->crud->addColumns([ $imagePathField, $nomField, $priceField, $descField]);
     }
 }

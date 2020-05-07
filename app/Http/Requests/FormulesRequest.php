@@ -42,6 +42,9 @@ class FormulesRequest extends FormRequest
     {
         return [
             //
+            'nomFormule' => 'Formule Name',
+            'prix' => 'Price',
+            'texte' => 'Recipe',
         ];
     }
 
@@ -54,6 +57,9 @@ class FormulesRequest extends FormRequest
     {
         return [
             //
+            'nomFormule.required' => 'Must include the Formule Name field ',
+            'prix.required' => 'Must include the Price for youre formule ',
+            'texte.required' => 'Must include the Recipe for youre formule ',
         ];
     }
 }

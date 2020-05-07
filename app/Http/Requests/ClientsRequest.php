@@ -33,7 +33,7 @@ class ClientsRequest extends FormRequest
             'email' => 'required|email',
             'login' => 'required|min:8|max:45',
             'motdepasse' => 'string|required|alpha_num|between:6,50',
-            'repetermotdepasse' => 'required|same:motdepasse',
+            //'repetermotdepasse' => 'required|same:motdepasse',
         ];
     }
 

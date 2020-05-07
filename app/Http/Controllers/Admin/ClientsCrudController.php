@@ -187,7 +187,7 @@ class ClientsCrudController extends CrudController
             'allows_null'       => true,
         ];
 
-        $this->crud->addFields([$imageField, $nomField,$prenomField,$adrField,$emailField,$logField,$passField, $passVerField, $caField, $adminField]);
+        $this->crud->addFields([$imageField, $nomField,$prenomField,$adrField,$emailField,$logField,$passField, $caField, $adminField]);
     }
 
     protected function setupUpdateOperation()

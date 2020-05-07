@@ -31,11 +31,12 @@ class CommentairesCrudController extends CrudController
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
 
         $client = [
-            'name' => 'clients.nom',
+            'name' => 'clients.prenom','clients.nom',
             'type' => 'text',
             'label' => 'Client',
-            'entity' => 'clients',
             'attribute' => 'nom',
+            'attribute' => 'prenom',
+            'entity' => 'clients',
             'model' => \App\Models\Categories::class,
         ];
         $produit = [
@@ -59,7 +60,7 @@ class CommentairesCrudController extends CrudController
             'label' => 'Date',
         ];
 
-        $this->crud->addColumns([$client, $produit, $commenteField]);
+        $this->crud->addColumns([$client, $produit, $commenteField, $dateField]);
 
     }
 
@@ -87,6 +88,7 @@ class CommentairesCrudController extends CrudController
                 'name' => 'numClient',
                 'entity' => 'clients',
                 'attribute' => 'nom',
+
                 'model' => "App\Models\Clients",
                 'options'   => (function ($query) {
                     return $query->orderBy('nom', 'ASC')->get();

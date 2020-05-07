@@ -43,6 +43,9 @@ class CommentairesRequest extends FormRequest
     {
         return [
             //
+            'texte' => 'Comment',
+            'codeProduit' => 'Product Name',
+            'numClient' => 'Client Name',
         ];
     }
 
@@ -55,6 +58,10 @@ class CommentairesRequest extends FormRequest
     {
         return [
             //
+            'texte.required' => 'Must include the Comment field ',
+            'numClient.required' => 'Must choose a Client which belongs the comment',
+            'codeProduit.required' => 'Must choose a Product which belongs the comment',
+
         ];
     }
 }

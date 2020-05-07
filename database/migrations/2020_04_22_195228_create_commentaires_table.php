@@ -14,7 +14,7 @@ class CreateCommentairesTable extends Migration
     {
         Schema::create('commentaires', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('date_pub')->nullable();
+            $table->timestamp('date_pub')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->text('texte')->nullable();
             $table->unsignedInteger('codeProduit')->nullable();
             $table->unsignedInteger('numClient')->nullable();

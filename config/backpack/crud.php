@@ -52,6 +52,7 @@ return [
             // - 2-3 - more important than the rest of the columns
             // - 4 - less important than most columns
             'actionsColumnPriority' => 1,
+
         ],
 
         /*
@@ -275,7 +276,11 @@ return [
         // "en_GB" => "English (United Kingdom)",
         // "en_US" => "English (United States)",
         // "en_ZW" => "English (Zimbabwe)",
+
+
         'en' => 'English',
+
+
         // "eo" => "Esperanto",
         // "et_EE" => "Estonian (Estonia)",
         // "et" => "Estonian",
