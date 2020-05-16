@@ -20,9 +20,11 @@ class Products extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    // protected $fillable = [];
+    protected $fillable = ['Nom', 'catID', 'Prix', 'Remise', 'Date_Debut', 'Date_Fin', 'isPromo', 'imgPath'];
     // protected $hidden = [];
     // protected $dates = [];
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -39,6 +41,21 @@ class Products extends Model
     public function categories(){
         return $this->belongsTo(Categories::class, 'catID');
     }
+
+    /*
+    public function commands(){
+        return $this->belongsToMany('App\Models\Commands');
+    }
+    */
+
+    public function commands(){
+        return $this->belongsToMany('App\Models\Commands', 'command_product');
+    }
+
+
+
+
+
 
     /*
     |--------------------------------------------------------------------------

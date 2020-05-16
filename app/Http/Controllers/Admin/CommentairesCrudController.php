@@ -37,7 +37,7 @@ class CommentairesCrudController extends CrudController
             'attribute' => 'nom',
             'attribute' => 'prenom',
             'entity' => 'clients',
-            'model' => \App\Models\Categories::class,
+            'model' => \App\Models\Clients::class,
         ];
         $produit = [
             'name' => 'products.Nom',

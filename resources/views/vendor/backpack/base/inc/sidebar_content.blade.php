@@ -25,3 +25,7 @@
 </li>
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('formules') }}'><i class='nav-icon fa fa-delicious'></i> Formules</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('commands') }}'><i class='nav-icon fa fa-delicious'></i> Commands</a></li>
+
+
+
