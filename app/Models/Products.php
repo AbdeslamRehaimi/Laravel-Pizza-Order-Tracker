@@ -18,7 +18,7 @@ class Products extends Model
 
     protected $table = 'products';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    //public $timestamps = true;
     protected $guarded = ['id'];
     protected $fillable = ['Nom', 'catID', 'Prix', 'Remise', 'Date_Debut', 'Date_Fin', 'isPromo', 'imgPath'];
     // protected $hidden = [];
@@ -50,6 +50,23 @@ class Products extends Model
 
     public function commands(){
         return $this->belongsToMany('App\Models\Commands', 'command_product');
+    }
+/*
+    public function formules(){
+        return $this->belongsToMany('App\Models\Commands', 'command_formule_product');
+    }
+
+    public function commands_formules(){
+        return $this->belongsToMany('App\Models\Formules', 'command_formule_product');
+    }
+*/
+/*
+    public function fformules(){
+        return $this->belongsToMany('App\Models\Formules', 'command_formule_product');
+    }
+    */
+    public function fcommands(){
+        return $this->belongsToMany('App\Models\Commands', 'command_formule_product');
     }
 
 

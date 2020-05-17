@@ -19,7 +19,7 @@ class Formules extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    // protected $fillable = [];
+    protected $fillable = ['nomFormule', 'prix', 'texte', 'imgPath'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -38,7 +38,14 @@ class Formules extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+/*
+    public function fproducts(){
+        return $this->belongsToMany('App\Models\Products', 'command_formule_product');
+    }
+    public function fcommands(){
+        return $this->belongsToMany('App\Models\Commands', 'command_formule_product');
+    }
+*/
     /*
     |--------------------------------------------------------------------------
     | SCOPES

@@ -95,6 +95,7 @@ class CommandsCrudController extends CrudController
         $this->crud->addFilter([ // select2_multiple filter
             'name' => 'products',
             'type' => 'select2_multiple',
+            //'type' => 'select',
             'label'=> 'Products',
         ], function () {
             return \App\Models\Products::all()->keyBy('id')->pluck('Nom', 'id')->toArray();
@@ -112,7 +113,7 @@ class CommandsCrudController extends CrudController
     });
 
 
-/*
+        /*
         |--------------------------------------------------------------------------
         | CREATE & UPDATE OPERATIONS
         |--------------------------------------------------------------------------
@@ -124,12 +125,14 @@ class CommandsCrudController extends CrudController
                 'name' => 'adressLiv',
                 'type'  =>  'address_algolia',
                 'label' => 'Adresse',
+                'tab' =>'CommandInfo',
                 //'placeholder' => 'Your title here',
             ]);
             $this->crud->addField([
                 'name' => 'type',
                 'type' => 'text',
                 'label' => 'Type',
+                'tab' =>'CommandInfo',
                 //'hint' => 'Type.',
                 // 'disabled' => 'disabled'
             ]);
@@ -143,11 +146,13 @@ class CommandsCrudController extends CrudController
                 'name' => 'secteur',
                 'type' => 'text',
                 'label' => 'Secteur',
+                'tab' =>'CommandInfo',
             ]);
             $this->crud->addField([
                 'name' => 'realise',
                 'type' => 'boolean',
                 'label' => 'Realiser',
+                'tab' =>'CommandInfo',
             ]);
             $this->crud->addField([
                 'label' => 'Client',
@@ -158,6 +163,7 @@ class CommandsCrudController extends CrudController
                 'inline_create' => true,
                 'ajax' => true,
             ]);
+
             $this->crud->addField([
                 'label' => 'Products',
                 'type' => 'Select2_multiple',
@@ -169,14 +175,53 @@ class CommandsCrudController extends CrudController
                 'ajax' => true,
             ]);
 
-        });
+//--------------------------------For FORMULES
+            $this->crud->addField([
+                /*
+                'label' => 'Formules',
+                'type' => 'select',
+                'name' => 'fformules',
+                'entity' => 'fformules',
+                'attribute' => 'nomFormule',
+                 'inline_create' => ['entity' => 'formules'],
+                'ajax' => true,
+                'pivot' => true,
+                'tab' => 'Formules',
+                */
 
+                'label' => "Formules",
+                'type' => 'select2',
+                'name' => 'fformules',
+                'entity' => 'fformules',
+                'attribute' => 'nomFormule',
+                'model' => "App\Models\Formules",
+                'options'   => (function ($query) {
+                    return $query->orderBy('nomFormule', 'ASC')->get();
+                }),
+                    'tab' => 'Formules',
+
+             ]);
+
+            $this->crud->addField([
+                'label' => 'ProductsFormules',
+                'type' => 'Select2_multiple',
+                'name' => 'fproducts', // the method that defines the relationship in your Model
+                'entity' => 'fproducts', // the method that defines the relationship in your Model
+                'attribute' => 'Nom', // foreign key attribute that is shown to user
+                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                'inline_create' => ['entity' => 'products'],
+                'ajax' => true,
+                'tab' => 'Formules',
+            ]);
+
+
+        });
     }
 
 
 
 
- /**
+    /**
      * Respond to AJAX calls from the select2 with entries from the Category model.
      * @return JSON
      */
@@ -192,6 +237,16 @@ class CommandsCrudController extends CrudController
     public function fetchProducts()
     {
         return $this->fetch(\app\Models\Products::class);
+    }
+
+
+    /**
+     * Respond to AJAX calls from the select2 with entries from the Tag model.
+     * @return JSON
+     */
+    public function fetchFormules()
+    {
+        return $this->fetch(\app\Models\Formules::class);
     }
 
 

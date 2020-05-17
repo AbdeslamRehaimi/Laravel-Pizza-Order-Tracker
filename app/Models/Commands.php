@@ -19,7 +19,7 @@ class Commands extends Model
     // protected $primaryKey = 'id';
     public $timestamps = true;
     protected $guarded = ['id'];
-    protected $fillable = ['numClient', 'date', 'adressLiv', 'type', 'realise', 'secteur'];
+    protected $fillable = ['numClient', 'date', 'adressLiv', 'type', 'realise', 'secteur', 'numFormule'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -38,7 +38,17 @@ class Commands extends Model
     public function clients(){
         return $this->belongsTo(Clients::class, 'numClient');
     }
-/*
+
+    public function fformules(){
+        return $this->belongsTo(Formules::class, 'numFormule');
+    }
+
+
+
+
+
+
+    /*
     public function products(){
         return $this->hasMany('App\Models\Products');
     }
@@ -48,8 +58,25 @@ class Commands extends Model
         return $this->belongsToMany('App\Models\Products', 'command_product');
     }
 
+/*
+     public function formules(){
+        return $this->belongsToMany('App\Models\Formules', 'command_formule_product');
+    }
 
+    public function formules_products(){
+        return $this->belongsToMany('App\Models\Products', 'command_formule_product');
+    }
 
+*/
+
+    public function fproducts(){
+        return $this->belongsToMany('App\Models\Products', 'command_formule_product');
+    }
+    /*
+    public function fformules(){
+        return $this->belongsToMany('App\Models\Formules', 'command_formule_product');
+    }
+*/
 
     /*
     |--------------------------------------------------------------------------
