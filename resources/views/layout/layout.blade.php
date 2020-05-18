@@ -71,41 +71,26 @@
                                     <!-- Minicart -->
                                     <div class="header-minicart minicart">
                                         <div class="minicart-header">
+                                        @foreach(Cart::content() as $product)
                                             <div class="minicart-product">
                                                 <div class="minicart-productimage">
-                                                    <a href="http://preview.hasthemes.com/haltico-v3/haltico/product-details.html">
-
-                                                        <img src="{{ asset('res/res/product-image-1.jpg') }}" alt="product image">
+                                                    <a href="{{ route('products.show', $product->model->Nom ) }}">
+                                                        <img src="{{ $product->model->imgPath }}" alt="product image">
                                                     </a>
                                                     <span class="minicart-productquantity">1x</span>
                                                 </div>
                                                 <div class="minicart-productcontent">
-                                                    <h6><a href="http://preview.hasthemes.com/haltico-v3/haltico/product-details.html">P-Series 4K UHD Dolby Vision HDR
-                                                            Roku Smart TV</a></h6>
-                                                    <span class="minicart-productprice">$43.00</span>
+                                                    <h6><a href="{{ route('products.show', $product->model->Nom ) }}">{{ $product->model->Nom }}</a></h6>
+                                                    <span class="minicart-productprice">{{ $product->model->getNewrix() }}</span>
                                                 </div>
                                                 <button class="minicart-productclose"><i class="ion ion-ios-close-circle"></i></button>
                                             </div>
-                                            <div class="minicart-product">
-                                                <div class="minicart-productimage">
-                                                    <a href="http://preview.hasthemes.com/haltico-v3/haltico/product-details.html">
-                                                        <img src="{{ asset('res/res/product-image-2.jpg') }}" alt="product image">
-                                                    </a>
-                                                    <span class="minicart-productquantity">1x</span>
-                                                </div>
-                                                <div class="minicart-productcontent">
-                                                    <h6><a href="#">HD Video Recording PJ Handycam
-                                                            Camcorder</a></h6>
-                                                    <span class="minicart-productprice">$43.00</span>
-                                                </div>
-                                                <button class="minicart-productclose"><i class="ion ion-ios-close-circle"></i></button>
-                                            </div>
+                                            @endforeach
                                         </div>
                                         <ul class="minicart-pricing">
-                                            <li>Subtotal <span>$24.12</span></li>
-                                            <li>Shipping <span>$7.00</span></li>
-                                            <li>Taxes <span>$0.00</span></li>
-                                            <li>Total <span>$31.12</span></li>
+                                            <li>Subtotal <span>{{ getPrice(Cart::subtotal()) }}</span></li>
+                                            <li>Taxes <span>{{ getPrice(Cart::tax()) }}</span></li>
+                                            <li>Total <span>{{ getPrice(Cart::total()) }}</span></li>
                                         </ul>
                                         <div class="minicart-footer">
                                             <a href="{{ route('cart.index') }}" class="ho-button ho-button-fullwidth">
