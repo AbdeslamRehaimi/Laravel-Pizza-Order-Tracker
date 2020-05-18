@@ -35,7 +35,9 @@
                             </div>
                             <p>The ATH-S700BT offers clear, full-bodied audio reproduction with Bluetooth® wireless operation. The headphones are equipped with a mic, and music and volume controls, allowing you to easily answer calls..</p>
                             <div class="pdetails-quantity">
-                                <form action="#" method="POST">
+                                <form action="{{ route('cart.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <button style="display: flex;" type="submit" class="ho-button">
                                         <i class="fa fa-cart-plus"></i>
                                         <span>Add to cart</span>

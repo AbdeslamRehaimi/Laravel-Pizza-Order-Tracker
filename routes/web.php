@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/products', 'ProductController@index');
-
+//Products
+Route::get('/products', 'ProductController@index')->name('products.index');;
 Route::get('/products/{Nom}','ProductController@show')->name('products.show');
+
+//Cart
+Route::get('/panier','CartController@index')->name('cart.index');
+Route::post('/panier/ajouter','CartController@store')->name('cart.store');
+Route::delete('/panier/{rowId}','CartController@destroy')->name('cart.destroy');
+Route::get('/viderpanier',function(){
+    Cart::destroy();
+    return redirect()->route('products.index');
+});

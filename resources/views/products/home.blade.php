@@ -28,6 +28,12 @@
             </nav>
         </div>
 
+        @if(session('success'))
+            <div class="alert alert-success">
+            {{ session('success') }}
+            </div>
+        @endif
+
         <div class="shop-page-products mt-30">
             <div class="row no-gutters">
 

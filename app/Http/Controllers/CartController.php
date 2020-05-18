@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\Product;
-
-class ProductController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //dd(Cart::content());
-        $products = Product::inRandomOrder()->get();
-        //dd($products);
-        return view('products.home')->with('products', $products);
+        //
+        return view('cart.cart');
+
     }
 
     /**
@@ -40,6 +38,24 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->id, $request->title, $request->price);
+
+        //Cart::add($request->id, $request->title, 1, $request->price)->associate('App\Product');
+
+        $duplicata = Cart::search(function($cartItem, $rowId) use($request){
+            return $cartItem -> id == $request->product_id;
+        });
+
+        if ($duplicata -> isNotEmpty() ){
+            return redirect()->route('products.index')->with('success', 'Le produit est deja ajouter!');
+        }
+        $product = Product::find($request->product_id);
+        Cart::add($product->id, $product->Nom, 1, $product->Prix)->associate('App\Product');
+        return redirect()->route('products.index')->with('success', 'Le produit est bien ajouter!');
+
+
+
+
     }
 
     /**
@@ -48,12 +64,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($Nom)
+    public function show($id)
     {
         //
-        $products = Product::where('Nom', $Nom)->firstOrFail();
-        return view('products.show')->with('product', $products);
-
     }
 
     /**
@@ -85,8 +98,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($rowId)
     {
         //
+        Cart::remove($rowId);
+        return back()->with('success', 'Le produit a ete supprimer!');
     }
 }

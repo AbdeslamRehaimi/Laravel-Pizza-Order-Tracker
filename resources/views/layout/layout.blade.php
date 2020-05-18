@@ -66,7 +66,7 @@
                                     </ul>
                                 </div>
                                 <div class="header-cart">
-                                    <a class="header-carticon" href="http://preview.hasthemes.com/haltico-v3/haltico/cart.html"><i class="fa fa-shopping-bag"></i><span class="count">2</span></a>
+                                    <a class="header-carticon" href="{{ route('cart.index') }}"><i class="fa fa-shopping-bag"></i><span class="count">{{ Cart::count() }}</span></a>
                                     <!-- Minicart -->
                                     <!-- Minicart -->
                                     <div class="header-minicart minicart">
@@ -94,7 +94,7 @@
                                                     <span class="minicart-productquantity">1x</span>
                                                 </div>
                                                 <div class="minicart-productcontent">
-                                                    <h6><a href="http://preview.hasthemes.com/haltico-v3/haltico/product-details.html">HD Video Recording PJ Handycam
+                                                    <h6><a href="#">HD Video Recording PJ Handycam
                                                             Camcorder</a></h6>
                                                     <span class="minicart-productprice">$43.00</span>
                                                 </div>
@@ -108,11 +108,11 @@
                                             <li>Total <span>$31.12</span></li>
                                         </ul>
                                         <div class="minicart-footer">
-                                            <a href="http://preview.hasthemes.com/haltico-v3/haltico/cart.html" class="ho-button ho-button-fullwidth">
+                                            <a href="{{ route('cart.index') }}" class="ho-button ho-button-fullwidth">
                                                 <span>Cart</span>
                                             </a>
-                                            <a href="http://preview.hasthemes.com/haltico-v3/haltico/checkout.html" class="ho-button ho-button-dark ho-button-fullwidth">
-                                                <span>Checkout</span>
+                                            <a href="/viderpanier" style="background-color: red; color:white;" class="ho-button ho-button-dark ho-button-fullwidth">
+                                                <span>Vider Panier</span>
                                             </a>
                                         </div>
                                     </div>
