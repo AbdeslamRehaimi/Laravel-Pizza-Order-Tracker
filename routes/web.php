@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/products', 'ProductController@index');
 
-Route::get('/register', function () {
-    return view('register');
-});
+Route::get('/products/{Nom}','ProductController@show')->name('products.show');

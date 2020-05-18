@@ -87,6 +87,7 @@
 
                 <div class="links">
                     <a href="{{ url('/admin') }}">BackPack</a>
+                    <a href="{{ url('/products') }}">FronteEnd</a>
                 </div>
             </div>
         </div>

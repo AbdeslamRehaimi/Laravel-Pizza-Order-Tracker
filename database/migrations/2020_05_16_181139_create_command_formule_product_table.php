@@ -17,6 +17,7 @@ class CreateCommandFormuleProductTable extends Migration
             $table->integer('commands_id')->unsigned();
             //$table->integer('formules_id')->unsigned();
             $table->integer('products_id')->unsigned();
+
             $table->timestamps();
             $table->softDeletes();
         });

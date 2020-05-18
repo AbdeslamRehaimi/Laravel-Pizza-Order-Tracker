@@ -188,17 +188,18 @@ class CommandsCrudController extends CrudController
                 'pivot' => true,
                 'tab' => 'Formules',
                 */
-
-                'label' => "Formules",
+                'label' => 'Formules',
                 'type' => 'select2',
-                'name' => 'fformules',
+                'name' => 'numFormule',
                 'entity' => 'fformules',
                 'attribute' => 'nomFormule',
-                'model' => "App\Models\Formules",
+                'inline_create' => ['entity' => 'formules'],
+                'inline_create' => true,
+                'ajax' => true,
                 'options'   => (function ($query) {
-                    return $query->orderBy('nomFormule', 'ASC')->get();
-                }),
-                    'tab' => 'Formules',
+                    return $query->orderBy('nomFormule', 'DESC')->get();
+                 }),
+                'tab' => 'Formules',
 
              ]);
 
