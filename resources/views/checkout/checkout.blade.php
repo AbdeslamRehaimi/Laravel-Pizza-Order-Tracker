@@ -24,7 +24,7 @@
             <!-- We'll put the error messages in this element -->
             <div id="card-errors" role="alert"></div>
 
-            <button class="btn btn-success mt-4" id="submit">Proceder au paiment</button>
+            <button class="btn btn-success mt-4" id="submit">Proceder au paiment {{ getPrice(Cart::total()) }}</button>
             </form>
         </div>
         </div>
@@ -115,7 +115,7 @@
                     }
                 ).then((data) => {
                     console.log(data);
-                    //windows.location.href = redirect;
+                    window.location.href = redirect;
                 }).catch((error) => {
                     console.log(error);
                 })

@@ -126,10 +126,10 @@
                             <nav class="ho-navigation" style="display: block;">
                                 <ul>
                                     <li class="active">
-                                        <a href="#">Home</a>
+                                        <a href="{{ route('products.index') }}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="http://preview.hasthemes.com/haltico-v3/haltico/shop-rightsidebar.html">Formules <span class="fa fa-angle-down"></span></a>
+                                        <a href="#">Formules <span class="fa fa-angle-down"></span></a>
                                         <ul class="hodropdown">
 
                                             <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/cart.html">Formule | Familial</a></li>
@@ -139,41 +139,27 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="http://preview.hasthemes.com/haltico-v3/haltico/shop-3-column.html#">Products <span class="fa fa-angle-down"></span></a>
+                                        <a href="{{ route('products.index') }}">Products <span class="fa fa-angle-down"></span></a>
                                         <ul class="megamenu">
-                                            <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/shop-rightsidebar.html">Categorie 1</a>
-                                                <ul>
-                                                    <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/shop-rightsidebar.html">Shop Right Sidebar</a></li>
-                                                    <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/shop-leftsidebar.html">Shop Left Sidebar</a></li>
+                                            @foreach(App\Categorie::all() as $Categorie)
+                                            <li><a href="{{ route('products.index', ['categorie' => $Categorie->NomCategorie]) }}">Categorie : {{$Categorie->NomCategorie}}</a>
+                                                @foreach($Categorie->products as $item)
+                                                 <ul>
+                                                    <li><a href="{{ route('products.show', $item->Nom ) }}">{{$item->Nom}}</a></li>
                                                 </ul>
-                                            </li>
-                                            <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/shop-rightsidebar.html">Categorie 2</a>
-                                                <ul>
-                                                    <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/product-details.html">Product Details</a></li>
-                                                    <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/product-details-reverse.html">Product Details Reverse</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/shop-rightsidebar.html">Categorie 3</a>
-                                                <ul>
-                                                    <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/cart.html">Cart</a></li>
-                                                    <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/wishlist.html">Wishlist</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/blog-rightsidebar.html">Categorie 4</a>
-                                                <ul>
-                                                    <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/blog-rightsidebar.html">Blog Right Sidebar</a></li>
-                                                    <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/blog-leftsidebar.html">Blog Left Sidebar</a></li>
-                                                </ul>
-                                            </li>
+                                                @endforeach
+                                             </li>
+                                            @endforeach
+
                                         </ul>
                                     </li>
 
 
                                     <li>
-                                        <a href="http://preview.hasthemes.com/haltico-v3/haltico/about-us.html">About Us</a>
+                                        <a href="#">About Us</a>
                                     </li>
                                     <li>
-                                        <a href="http://preview.hasthemes.com/haltico-v3/haltico/contact.html"> Contact</a>
+                                        <a href="#"> Contact</a>
                                     </li>
                                 </ul>
                             </nav>

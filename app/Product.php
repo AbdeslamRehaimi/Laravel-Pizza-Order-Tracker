@@ -15,4 +15,10 @@ class Product extends Model
         $Prix = $this->Prix - $this->Prix * $this->Remise / 100;
         return number_format($Prix, 2, ',', ' ') . ' $';
     }
+
+    public function categories(){
+        return $this->belongsTo('App\Categorie', 'catID');
+    }
+
+
 }

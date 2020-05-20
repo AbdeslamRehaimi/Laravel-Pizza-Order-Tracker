@@ -33,7 +33,7 @@
                                 <span class="price">${{ $product->Prix - ($product->Prix * $product->Remise/100) }}</span>
                                 <span class="badge">Save {{ $product->Remise }}%</span>
                             </div>
-                            <p>The ATH-S700BT offers clear, full-bodied audio reproduction with Bluetooth® wireless operation. The headphones are equipped with a mic, and music and volume controls, allowing you to easily answer calls..</p>
+                            <br><br><br>
                             <div class="pdetails-quantity">
                                 <form action="{{ route('cart.store') }}" method="POST">
                                     @csrf
@@ -48,7 +48,7 @@
                             <div class="pdetails-categories">
                                 <span>Categories :</span>
                                 <ul>
-                                    <li><a href="shop-rightsidebar.html">{{ $product->categories }}</a></li>
+                                    <li><a href="shop-rightsidebar.html">{{ $product->categories->NomCategorie }}</a></li>
                                 </ul>
                             </div>
                         </div>

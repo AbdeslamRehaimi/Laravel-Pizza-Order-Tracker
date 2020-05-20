@@ -13,18 +13,10 @@
 
         <div class=" mt-30 nav-scroller py-1 mb-2 bg-grey">
             <nav class="nav d-flex justify-content-between">
-                <a class="p-2 text-muted" href="#">World</a>
-                <a class="p-2 text-muted" href="#">U.S.</a>
-                <a class="p-2 text-muted" href="#">Technology</a>
-                <a class="p-2 text-muted" href="#">Design</a>
-                <a class="p-2 text-muted" href="#">Culture</a>
-                <a class="p-2 text-muted" href="#">Business</a>
-                <a class="p-2 text-muted" href="#">Politics</a>
-                <a class="p-2 text-muted" href="#">Opinion</a>
-                <a class="p-2 text-muted" href="#">Science</a>
-                <a class="p-2 text-muted" href="#">Health</a>
-                <a class="p-2 text-muted" href="#">Style</a>
-                <a class="p-2 text-muted" href="#">Travel</a>
+            <a  class="p-2 text-muted" href="{{ route('products.index') }}"><span style="color: #0a424e;"><b>All</b></span></a>
+                @foreach(App\Categorie::all() as $Categorie)
+                    <a  class="p-2 text-muted" href="{{ route('products.index', ['categorie' => $Categorie->NomCategorie]) }}"><span style="color: #0a424e;"><b>{{$Categorie->NomCategorie}}</b></span></a>
+                @endforeach
             </nav>
         </div>
 
@@ -42,16 +34,18 @@
                     <!-- Single Product -->
                     <article class="hoproduct">
                         <div class="hoproduct-image">
-                            <a class="hoproduct-thumb" href="http://preview.hasthemes.com/haltico-v3/haltico/product-details.html">
+                            <a class="hoproduct-thumb" href="{{ route('products.show', $item->Nom ) }}">
                                     <img class="hoproduct-frontimage" src="{{ $item->imgPath }}" alt="product image">
                                 </a>
                             <ul class="hoproduct-flags">
-                                <li class="flag-pack">New</li>
+                                <li class="flag-pack">New </li>
                                 <li class="flag-discount">-{{ $item->Remise }}%</li>
+                                <li class="flag-pack" style="width: 200px; margin-top: 150px; color: black; background: #ffe201; ">Categorie: {{ $item->categories->NomCategorie }}</li>
+
                             </ul>
                         </div>
                         <div class="hoproduct-content">
-                            <h5 class="hoproduct-title"><a href="http://preview.hasthemes.com/haltico-v3/haltico/product-details.html">{{ $item->Nom }}</a></h5>
+                            <h5 class="hoproduct-title"><a href="{{ route('products.show', $item->Nom ) }}">{{ $item->Nom }}</a></h5>
                             <div class="hoproduct-rattingbox">
                                 <div class="rattingbox">
                                     <span class="active"><i class="fa fa-star"></i></span>
@@ -79,6 +73,8 @@
         </div>
 
         <div class="cr-pagination pt-30">
+            {{$products->appends(request()->input())->links()}}
+            <!--
             <p>Showing 1-12 of 13 item(s)</p>
             <ul>
                 <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/shop-rightsidebar.html"><i class="ion ion-ios-arrow-back"></i> Previous</a></li>
@@ -86,6 +82,7 @@
                 <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/shop-rightsidebar.html">2</a></li>
                 <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/shop-rightsidebar.html">Next <i class="ion ion-ios-arrow-forward"></i></a></li>
             </ul>
+            -->
         </div>
 
     </div>

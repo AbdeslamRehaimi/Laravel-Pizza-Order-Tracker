@@ -21,6 +21,12 @@ class CreateCommandsTable extends Migration
             $table->string('type')->nullable();
             $table->boolean('realise')->nullable();
             $table->string('secteur')->nullable();
+
+
+            $table->integer('prixtotal');
+            $table->string('payment_intent_id');
+
+
             $table->foreign('numClient')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
