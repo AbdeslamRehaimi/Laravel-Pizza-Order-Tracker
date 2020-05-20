@@ -21,4 +21,10 @@ class Product extends Model
     }
 
 
+    public function commentaires(){
+        return $this->hasMany('App\Commentaire', 'codeProduit');
+    }
+
+
+
 }

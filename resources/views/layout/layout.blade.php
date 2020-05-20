@@ -121,7 +121,6 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-10 d-none d-lg-block">
-
                             <!-- Navigation -->
                             <nav class="ho-navigation" style="display: block;">
                                 <ul>
