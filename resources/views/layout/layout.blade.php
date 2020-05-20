@@ -5,9 +5,10 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    @yield('extra-meta')
     <title>Boite Pizza</title>
+    @yield('extra-script')
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -71,6 +72,8 @@
                                     <!-- Minicart -->
                                     <div class="header-minicart minicart">
                                         <div class="minicart-header">
+                                        @if(Cart::count()>0)
+
                                         @foreach(Cart::content() as $product)
                                             <div class="minicart-product">
                                                 <div class="minicart-productimage">
@@ -86,6 +89,9 @@
                                                 <button class="minicart-productclose"><i class="ion ion-ios-close-circle"></i></button>
                                             </div>
                                             @endforeach
+                                            @else
+                                            <p>Vide</p>
+                                            @endif
                                         </div>
                                         <ul class="minicart-pricing">
                                             <li>Subtotal <span>{{ getPrice(Cart::subtotal()) }}</span></li>
@@ -224,6 +230,8 @@
     <script src="{{ asset('res/res/plugins.js') }}"></script>
     <script src="{{ asset('res/res/main.js') }}"></script>
     <a id="scrollUp " href="home#top " style="position: fixed; z-index: 2147483647; display: none; "><i  class="fa fa-angle-double-up ">  <span  class="fa fa-user"></span></i></a>
+    @yield('extra-js')
+
 </body>
 
 </html>
