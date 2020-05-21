@@ -35,3 +35,6 @@ Route::get('/merci',function(){
     return view('checkout.thankyou');
 });
 
+//Formules
+Route::get('/formules', 'FormuleController@index')->name('formules.index');;
+Route::get('/formules/{nomFormule}','FormuleController@show')->name('formules.show');

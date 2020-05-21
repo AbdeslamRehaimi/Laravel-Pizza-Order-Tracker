@@ -19,6 +19,7 @@
 
     <!-- Style Css -->
     <link rel="stylesheet" href="{{ asset('res/res/style.css') }}">
+    @yield('extra-css')
 </head>
 
 <body>
@@ -128,13 +129,11 @@
                                         <a href="{{ route('products.index') }}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="#">Formules <span class="fa fa-angle-down"></span></a>
+                                        <a href="{{ route('formules.index') }}">Formules <span class="fa fa-angle-down"></span></a>
                                         <ul class="hodropdown">
-
-                                            <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/cart.html">Formule | Familial</a></li>
-                                            <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/wishlist.html">Formule | Solo</a></li>
-                                            <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/checkout.html">Formule | Miduim</a></li>
-                                            <li><a href="http://preview.hasthemes.com/haltico-v3/haltico/compare.html">Formule | Large</a></li>
+                                        @foreach(App\Formule::all() as $Formules)
+                                            <li><a href="{{ route('formules.show', $Formules->nomFormule ) }}">{{ $Formules->nomFormule }}</a></li>
+                                        @endforeach
                                         </ul>
                                     </li>
                                     <li>
@@ -191,10 +190,7 @@
         <!-- Footer -->
         <footer class="footer text-center badge-dark " style="display: flex;">
             <div class=" container ">
-                <p>Blog template built for <a href="https://getbootstrap.com/ ">Bootstrap</a> by <a href="https://twitter.com/mdo ">@mdo</a>.</p>
-                <p>
-                    <a href="# ">Back to top</a>
-                </p>
+                <p style="margin-top: 15px;">Copyright @ Master-ISI 2020</p>
             </div>
 
         </footer>
