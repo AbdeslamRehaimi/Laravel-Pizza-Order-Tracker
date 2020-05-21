@@ -27,8 +27,7 @@ class ClientsRequest extends FormRequest
     {
         return [
             // 'name' => 'required|min:5|max:255'
-            'nom' => 'required|min:3|max:105',
-            'prenom' => 'required|min:3|max:105',
+            'name' => 'required|min:3|max:105',
             'adresse' => 'required|min:2|max:205',
             'email' => 'required|email',
             'login' => 'required|min:8|max:45',

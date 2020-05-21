@@ -53,19 +53,37 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 order-2 order-lg-3">
                             <div class="header-icons">
                                 <div class="header-account">
-                                    <button class="header-accountbox-trigger"><span class="fa fa-user"></span> My
-                                        Account <i class="fa fa-angle-down"></i></button>
+                                    <button class="header-accountbox-trigger"><span class="fa fa-user"></span> My Account <i class="fa fa-angle-down"></i></button>
+                                        <!-- Guest -->
+                                    @guest
                                     <ul class="header-accountbox dropdown-list">
                                         <li>
-                                            <a href="http://preview.hasthemes.com/haltico-v3/haltico/my-account.html">My account</a>
+                                            <a href="{{ route('login') }}">Login</a>
                                         </li>
                                         <li>
-                                            <a href="http://preview.hasthemes.com/haltico-v3/haltico/checkout.html">Commands</a>
-                                        </li>
-                                        <li>
-                                            <a href="http://preview.hasthemes.com/haltico-v3/haltico/login-register.html">Sign in</a>
+                                            <a href="{{ route('register') }}">Register</a>
                                         </li>
                                     </ul>
+                                    @else
+                                    <!-- Fammille -->
+                                    <ul class="header-accountbox dropdown-list">
+                                        <li>
+                                            <a href="{{route('products.index')}}">{{ Auth::user()->name }} </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                            </a>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                    </ul>
+                                    @endguest
+
+
                                 </div>
                                 <div class="header-cart">
                                     <a class="header-carticon" href="{{ route('cart.index') }}"><i class="fa fa-shopping-bag"></i><span class="count">{{ Cart::count() }}</span></a>
@@ -207,7 +225,7 @@
     <script src="{{ asset('res/res/modernizr-3.6.0.min.js') }}"></script>
     <script src="{{ asset('res/res/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('res/res/popper.min.js') }}"></script>
-    <script src="{{ asset('res/res/bootstrap.min.js') }} "></script>
+    <script src="{{ asset('res/bootstrap/js/bootstrap.min.js') }} "></script>
     <script src="{{ asset('res/res/plugins.js') }}"></script>
     <script src="{{ asset('res/res/main.js') }}"></script>
     <a id="scrollUp " href="home#top " style="position: fixed; z-index: 2147483647; display: none; "><i  class="fa fa-angle-double-up ">  <span  class="fa fa-user"></span></i></a>

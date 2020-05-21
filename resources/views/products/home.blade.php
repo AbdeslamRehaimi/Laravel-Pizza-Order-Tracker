@@ -1,4 +1,4 @@
- @extends('layout.layout') @section('content')
+ @extends('layouts.layout') @section('content')
 <div class="shop-page-area bg-white ">
     <div class="banner-area text-center bg-dark">
         <div class="imgbanner imgbanner-2">
@@ -25,6 +25,12 @@
             {{ session('success') }}
             </div>
         @endif
+        @if(session('danger'))
+            <div class="alert alert-danger">
+            {{ session('danger') }}
+            </div>
+        @endif
+
 
         <div class="shop-page-products mt-30">
             <div class="row no-gutters">

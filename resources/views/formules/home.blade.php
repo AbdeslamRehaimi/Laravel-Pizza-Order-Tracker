@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layouts.layout')
 @section('content')
 <div class="shop-page-area bg-white ">
     <div class="banner-area text-center bg-dark">

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Command extends Model
 {
     //
-    public function user(){
-        return $this->belongsTo('App\User');
+    public function clinet(){
+        return $this->belongsTo('App\Client', 'numClient');
     }
 }

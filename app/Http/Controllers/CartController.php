@@ -47,7 +47,7 @@ class CartController extends Controller
         });
 
         if ($duplicata -> isNotEmpty() ){
-            return redirect()->route('products.index')->with('success', 'Le produit est deja ajouter!');
+            return redirect()->route('products.index')->with('danger', 'Le produit est deja ajouter!');
         }
         $product = Product::find($request->product_id);
         Cart::add($product->id, $product->Nom, 1, $product->Prix)->associate('App\Product');

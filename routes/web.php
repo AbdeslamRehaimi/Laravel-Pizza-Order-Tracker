@@ -38,3 +38,8 @@ Route::get('/merci',function(){
 //Formules
 Route::get('/formules', 'FormuleController@index')->name('formules.index');;
 Route::get('/formules/{nomFormule}','FormuleController@show')->name('formules.show');
+
+
+//auth
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

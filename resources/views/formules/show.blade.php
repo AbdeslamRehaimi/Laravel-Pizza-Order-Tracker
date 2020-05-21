@@ -1,4 +1,4 @@
-@extends('layout.layout') @section('content')
+@extends('layouts.layout') @section('content')
 @section('extra-css')
 <link rel="stylesheet" href="{{ asset('res/more.css') }}">
 @endsection
@@ -16,15 +16,8 @@
                 <input type="hidden" id="slug-formule" value="duo-max">
 
                 <h1 class="h1-product">{{ $formule->nomFormule }}</h1>
-
                 <div class="item-long-desc">
-                    <p><strong>N&nbsp;pizzas grandes</strong>&nbsp;au choix</p>
-
-                    <ul>
-                        <li><strong>N boisson</strong> N.25 L</li>
-                        <li><strong>N € le dessert ou Ti’Salade</strong></li>
-                        <li><strong>N Chicken Wings</strong></li>
-                    </ul>
+                    <?php echo $formule->texte; ?>
                 </div>
             </div>
 

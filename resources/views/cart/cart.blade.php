@@ -1,4 +1,4 @@
-@extends('layout.layout') @section('content')
+@extends('layouts.layout') @section('content')
 <div class="container">
     <div class="row">
     @if(session('success'))
@@ -22,7 +22,7 @@
                     <!-- Shopping cart table -->
                     <div class="table-responsive">
                         <table class="table">
-                            <thead>
+                            <thead class="color-black">
                                 <tr>
                                     <th scope="col" class="border-0 bg-light">
                                         <div class="p-2 px-3 text-uppercase">Product</div>
@@ -55,7 +55,7 @@
                                         <form method="post" action="{{ route('cart.destroy', $product->rowId ) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="text-dark"><i class="fa fa-trash"></i></button>
+                                            <button type="submit" class="text-dark"><i class="fa fa-trash fa-2x " style="color: red;"></i></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -68,8 +68,8 @@
             </div>
 
             <div class="row py-5 p-4 bg-white rounded shadow-sm">
-                <div class="col-lg-6">
-                    <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+                <div class="col-lg-6 hidden">
+                    <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold ">Coupon code</div>
                     <div class="p-4">
                         <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
                         <div class="input-group mb-4 border rounded-pill p-2">
@@ -85,8 +85,8 @@
                         <textarea name="" cols="30" rows="2" class="form-control"></textarea>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+                <div class="offset-6 col-lg-6">
+                    <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold color-white">Order summary </div>
                     <div class="p-4">
                         <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
                         <ul class="list-unstyled mb-4">

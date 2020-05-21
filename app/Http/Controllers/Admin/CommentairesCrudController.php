@@ -31,11 +31,10 @@ class CommentairesCrudController extends CrudController
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
 
         $client = [
-            'name' => 'clients.prenom','clients.nom',
+            'name' => 'clients.name',
             'type' => 'text',
             'label' => 'Client',
-            'attribute' => 'nom',
-            'attribute' => 'prenom',
+            'attribute' => 'name',
             'entity' => 'clients',
             'model' => \App\Models\Clients::class,
         ];
@@ -87,11 +86,11 @@ class CommentairesCrudController extends CrudController
                 'type' => 'select',
                 'name' => 'numClient',
                 'entity' => 'clients',
-                'attribute' => 'nom',
+                'attribute' => 'name',
 
                 'model' => "App\Models\Clients",
                 'options'   => (function ($query) {
-                    return $query->orderBy('nom', 'ASC')->get();
+                    return $query->orderBy('name', 'ASC')->get();
                  }),
                 ];
 
@@ -134,10 +133,10 @@ class CommentairesCrudController extends CrudController
                 'type' => 'select',
                 'name' => 'numClient',
                 'entity' => 'clients',
-                'attribute' => 'nom',
+                'attribute' => 'name',
                 'model' => "App\Models\Clients",
                 'options'   => (function ($query) {
-                    return $query->orderBy('nom', 'ASC')->get();
+                    return $query->orderBy('name', 'ASC')->get();
                  }),
                 ];
 

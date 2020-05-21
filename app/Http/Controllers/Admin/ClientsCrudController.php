@@ -32,16 +32,12 @@ class ClientsCrudController extends CrudController
         //$this->crud->setFromDb()
 
         $nomField = [
-            'name' => 'nom',
+            'name' => 'name',
             'type' => 'text',
             'label' => 'Nom',
         ];
 
-        $prenomField = [
-            'name' => 'prenom',
-            'type' => 'text',
-            'label' => 'Prenom',
-        ];
+
 
         $adrField = [
             'name' => 'adresse',
@@ -87,7 +83,7 @@ class ClientsCrudController extends CrudController
             'label' => 'Role',
         ];
 
-        $this->crud->addColumns([$adminField, $nomField,$prenomField,$adrField,$emailField,$dateField,$imageField]);
+        $this->crud->addColumns([$adminField, $nomField ,$adrField,$emailField,$dateField,$imageField]);
     }
 
     protected function setupCreateOperation()
@@ -111,7 +107,7 @@ class ClientsCrudController extends CrudController
         ];
 
         $nomField = [
-            'name' => 'nom',
+            'name' => 'name',
             'type' => 'text',
             'label' => 'Nom',
             'wrapperAttributes' => [
@@ -119,14 +115,7 @@ class ClientsCrudController extends CrudController
             ],
         ];
 
-        $prenomField = [
-            'name' => 'prenom',
-            'type' => 'text',
-            'label' => 'Prenom',
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-6',
-            ],
-        ];
+
 
         $adrField = [
             'name' => 'adresse',
@@ -187,7 +176,7 @@ class ClientsCrudController extends CrudController
             'allows_null'       => true,
         ];
 
-        $this->crud->addFields([$imageField, $nomField,$prenomField,$adrField,$emailField,$logField,$passField, $caField, $adminField]);
+        $this->crud->addFields([$imageField, $nomField ,$adrField,$emailField,$logField,$passField, $caField, $adminField]);
     }
 
     protected function setupUpdateOperation()
@@ -199,16 +188,12 @@ class ClientsCrudController extends CrudController
     {
         $this->crud->setOperationSetting('contentClass', 'col-md-8');
         $nomField = [
-            'name' => 'nom',
+            'name' => 'name',
             'type' => 'text',
             'label' => 'Nom',
         ];
 
-        $prenomField = [
-            'name' => 'prenom',
-            'type' => 'text',
-            'label' => 'Prenom',
-        ];
+
 
         $adrField = [
             'name' => 'adresse',
@@ -251,6 +236,6 @@ class ClientsCrudController extends CrudController
             'label' => 'Ca',
         ];
 
-        $this->crud->addColumns([$imageField, $nomField,$prenomField,$adrField,$emailField,$logField,$dateField]);
+        $this->crud->addColumns([$imageField, $nomField ,$adrField,$emailField,$logField,$dateField]);
     }
 }

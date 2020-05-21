@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layouts.layout')
 @section('content')
 
 <main class="page-content">
@@ -104,27 +104,15 @@
                                     <form action="#" class="ho-form">
                                         <div class="ho-form-inner">
                                             <div class="single-input">
-                                                <!--
-                                                <label>Your Rating</label>
-                                                <div class="rattingbox hover-action">
-                                                    <span class="active"><i class="ion ion-ios-star"></i></span>
-                                                    <span class="active"><i class="ion ion-ios-star"></i></span>
-                                                    <span class="active"><i class="ion ion-ios-star"></i></span>
-                                                    <span><i class="ion ion-ios-star"></i></span>
-                                                    <span><i class="ion ion-ios-star"></i></span>
-                                                </div>-->
                                             </div>
                                             <div class="single-input">
-                                                <label for="new-review-textbox">Your Review</label>
                                                 <textarea id="new-review-textbox" cols="30" rows="5"></textarea>
                                             </div>
                                             <div class="single-input">
-                                                <label for="new-review-name">Name*</label>
-                                                <input class="input form-control" disabled="true" type="text" value="Name Prename" id="new-review-name">
+                                                <input class="input form-control"  disabled="true" type="hidden" value="Name Prename" id="new-review-name">
                                             </div>
                                             <div class="single-input">
-                                                <label for="new-review-email">Email*</label>
-                                                <input class="input form-control" disabled="true" type="email" value="email@email.com" id="new-review-email">
+                                                <input class="input form-control" disabled="true" type="hidden" value="email@email.com" id="new-review-email">
                                             </div>
                                             <div class="single-input">
                                                 <button class="ho-button" type="submit"><span>SUBMIT</span></button>

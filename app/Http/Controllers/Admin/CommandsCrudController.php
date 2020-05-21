@@ -72,7 +72,7 @@ class CommandsCrudController extends CrudController
             'type' => 'select',
             'name' => 'numClient',
             'entity' => 'clients',
-            'attribute' => 'nom',
+            'attribute' => 'name',
             'wrapper'   => [
                 'href' => function ($crud, $column, $entry, $related_key) {
                     return backpack_url('clients/'.$related_key.'/show');
@@ -84,7 +84,7 @@ class CommandsCrudController extends CrudController
             'type' => 'select2',
             'label'=> 'Client',
         ], function () {
-            return \app\Models\Clients::all()->keyBy('id')->pluck('nom', 'id')->toArray();
+            return \app\Models\Clients::all()->keyBy('id')->pluck('name', 'id')->toArray();
         }, function ($value) { // if the filter is active
             $this->crud->addClause('where', 'numClient', $value);
         });
@@ -159,7 +159,7 @@ class CommandsCrudController extends CrudController
                 'type' => 'select',
                 'name' => 'numClient',
                 'entity' => 'clients',
-                'attribute' => 'nom',
+                'attribute' => 'name',
                 'inline_create' => true,
                 'ajax' => true,
             ]);

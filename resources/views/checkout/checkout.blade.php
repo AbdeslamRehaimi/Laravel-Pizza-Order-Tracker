@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layouts.layout')
 @section('extra-meta')
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
