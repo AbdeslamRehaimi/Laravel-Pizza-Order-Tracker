@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Commentaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CommentaireController extends Controller
 {
@@ -35,7 +36,28 @@ class CommentaireController extends Controller
      */
     public function store(Request $request)
     {
+
+        /*$validator = Validator::make($request->json()->all(), [
+            //'texte' => 'required',
+            //'codeProduit' => 'required',
+            //'numClient' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toJson());
+        }*/
+
+        $variable = $request->productname;
+
         //
+        $Commentaire = new Commentaire();
+        $Commentaire->texte = $request->texte;
+        $Commentaire->codeProduit = $request->codeProduit;
+        $Commentaire->numClient = $request->numClient;
+
+        $Commentaire->save();
+
+        return redirect()->route('products.show', $variable);
     }
 
     /**

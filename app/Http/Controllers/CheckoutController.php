@@ -28,13 +28,13 @@ class CheckoutController extends Controller
         $intent = \Stripe\PaymentIntent::create([
             //'amount' => round(Cart::total()),
             //round permet de convertir integer au chane de char
-            //amount is in cents, $1 is 100 not 1. amount = 1 would charge $.01
+            //amount is in cents, $1 is 100 not 1. amount = 1 then it'l be just $.01
             'amount' => round(Cart::total() * 100),
             'currency' => 'usd',
         ]);
 
         //dd($intent);
-
+            //Arr is a helper from laravel table
         $clientSecret = Arr::get($intent, 'client_secret');
         return view('checkout.checkout',[
             'clientSecret' => $clientSecret

@@ -15,7 +15,7 @@ class CreateCommandFormuleProductTable extends Migration
         Schema::create('command_formule_product', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('commands_id')->unsigned();
-            //$table->integer('formules_id')->unsigned();
+            $table->integer('formules_id')->unsigned();
             $table->integer('products_id')->unsigned();
 
             $table->timestamps();

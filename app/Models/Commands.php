@@ -39,44 +39,19 @@ class Commands extends Model
         return $this->belongsTo(Clients::class, 'numClient');
     }
 
-    public function fformules(){
-        return $this->belongsTo(Formules::class, 'numFormule');
-    }
-
-
-
-
-
-
-    /*
-    public function products(){
-        return $this->hasMany('App\Models\Products');
-    }
-    */
-
     public function products(){
         return $this->belongsToMany('App\Models\Products', 'command_product');
     }
 
-/*
-     public function formules(){
-        return $this->belongsToMany('App\Models\Formules', 'command_formule_product');
+    public function fformules(){
+        return $this->belongsTo(Formules::class, 'numFormule');
     }
-
-    public function formules_products(){
-        return $this->belongsToMany('App\Models\Products', 'command_formule_product');
-    }
-
-*/
 
     public function fproducts(){
         return $this->belongsToMany('App\Models\Products', 'command_formule_product');
     }
-    /*
-    public function fformules(){
-        return $this->belongsToMany('App\Models\Formules', 'command_formule_product');
-    }
-*/
+
+
 
     /*
     |--------------------------------------------------------------------------

@@ -39,10 +39,17 @@
                                 <form action="{{ route('cart.store') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    @guest
+                                    <button style="display: flex;" type="submit" disabled="true" class="btn btn-warning">
+                                        <span>Must Login</span>
+                                    </button>
+                                    @else
                                     <button style="display: flex;" type="submit" class="ho-button">
                                         <i class="fa fa-cart-plus"></i>
                                         <span>Add to cart</span>
                                     </button>
+                                    @endguest
+
                                 </form>
                             </div>
                             <div class="pdetails-categories">
@@ -82,7 +89,7 @@
                                         </div>
                                         <div class="single-comment-content" style="width: -webkit-fill-available;">
                                             <div class="single-comment-content-top">
-                                                <h6>{{$item->clients->nom}} {{$item->clients->prenom}} : publie le: {{$item->date_pub}}</h6>
+                                                <h6>{{$item->clients->name}} : publie le: {{$item->date_pub}}</h6>
                                                 <div class="rattingbox">
                                                     <span class="active"><i class="fa fa-star"></i></span>
                                                     <span class="active"><i class="fa fa-star"></i></span>
@@ -101,21 +108,29 @@
 
                                 <div class="commentbox mt-5">
                                     <h5>REVIEW/COMMENTS</h5>
-                                    <form action="#" class="ho-form">
+                                    <form action="{{ route('commentaire.store') }}" method="POST" class="ho-form">
+                                        @csrf
                                         <div class="ho-form-inner">
                                             <div class="single-input">
+                                                <textarea id="texte" name="texte" cols="30" rows="5" required="true"></textarea>
                                             </div>
                                             <div class="single-input">
-                                                <textarea id="new-review-textbox" cols="30" rows="5"></textarea>
+                                                <input type="hidden" name="codeProduit" value="{{ $product->id }}">
+                                            </div>
+
+                                            <input type="hidden" name="productname" value="{{ $product->Nom }}">
+                                            <div class="single-input">
+                                            @guest
+
+                                            @else
+                                             <input type="hidden" name="numClient" value="{{ Auth::user()->id }}">
+                                            @endguest
                                             </div>
                                             <div class="single-input">
-                                                <input class="input form-control"  disabled="true" type="hidden" value="Name Prename" id="new-review-name">
-                                            </div>
-                                            <div class="single-input">
-                                                <input class="input form-control" disabled="true" type="hidden" value="email@email.com" id="new-review-email">
-                                            </div>
-                                            <div class="single-input">
-                                                <button class="ho-button" type="submit"><span>SUBMIT</span></button>
+                                            <button style="display: flex;" type="submit" class="ho-button">
+                                                <i class="fa fa-comment"></i>
+                                                <span> Envoyer</span>
+                                            </button>
                                             </div>
                                         </div>
                                     </form>

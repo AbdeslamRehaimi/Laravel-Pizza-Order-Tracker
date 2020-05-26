@@ -65,6 +65,7 @@ class Products extends Model
         return $this->belongsToMany('App\Models\Formules', 'command_formule_product');
     }
     */
+
     public function fcommands(){
         return $this->belongsToMany('App\Models\Commands', 'command_formule_product');
     }

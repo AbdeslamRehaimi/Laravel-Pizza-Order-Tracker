@@ -14,4 +14,9 @@ class Client extends Model
     public function commands(){
         return $this->HasMany('App\Command');
     }
+
+    public function getAuthPassword()
+    {
+      return $this->motdepasse;
+    }
 }

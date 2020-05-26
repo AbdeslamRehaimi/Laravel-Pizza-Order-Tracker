@@ -31,12 +31,12 @@ class ClientUser extends Authenticatable
         'motdepasse', 'remember_token',
     ];
 
-/*
+
     public function getAuthPassword()
     {
       return $this->motdepasse;
     }
-*/
+
     /**
      * The attributes that should be cast to native types.
      *

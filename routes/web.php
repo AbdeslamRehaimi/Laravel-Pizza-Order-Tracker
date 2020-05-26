@@ -43,3 +43,6 @@ Route::get('/formules/{nomFormule}','FormuleController@show')->name('formules.sh
 //auth
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Commentaire
+Route::post('/commente/ajouter','CommentaireController@store')->name('commentaire.store');
